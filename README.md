@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Solar Challenge Week 1
 
 ## ?? Setup Instructions
@@ -43,3 +44,6 @@ solar-challenge-week1/
     +-- __init__.py
     +-- README.md
 \\\
+=======
+﻿# Solar Challenge Week 1
+>>>>>>> 1a790d62de225e5f543dd278d9225c4847fbba1a
