@@ -2,15 +2,12 @@ import streamlit as st
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-from app.utils import load_all_data
+from utils import load_all_data
 
-# Page config
-st.set_page_config(page_title="☀️ West Africa Solar Dashboard", layout="centered")
+st.set_page_config(page_title="MoonLight Energy Solutions Dashbord", layout="centered")
 
-# Load Data
 df = load_all_data()
 
-# Sidebar filters
 st.sidebar.header("🔍 Filters")
 selected_countries = st.sidebar.multiselect(
     "Select Country/Countries",
@@ -22,16 +19,16 @@ selected_metric = st.sidebar.selectbox("Select Metric", ["GHI", "DNI", "DHI"])
 df_filtered = df[df["Country"].isin(selected_countries)]
 
 # Dashboard Title
-st.title("☀️ West Africa Solar Insights Dashboard")
+st.title("MoonLight Energy Solutions Dashbord")
 
 # Boxplot
-st.subheader(f"📦 Distribution of {selected_metric}")
+st.subheader(f"Distribution of {selected_metric}")
 fig, ax = plt.subplots()
 sns.boxplot(x="Country", y=selected_metric, data=df_filtered, palette="Set2", ax=ax)
 st.pyplot(fig)
 
 # Summary Stats Table
-st.subheader("📊 Summary Table")
+st.subheader("Summary Table")
 summary_stats = df_filtered.groupby("Country")[selected_metric].agg(["mean", "median", "std"]).round(2)
 st.dataframe(summary_stats)
 
@@ -42,4 +39,4 @@ st.bar_chart(ranking)
 
 # Footer
 st.markdown("---")
-st.caption("Created by [Your Name] | 10 Academy AIM Week 0")
+st.caption("Created by [Hawi Kebebew] | 10 Academy AIM Week 0")
